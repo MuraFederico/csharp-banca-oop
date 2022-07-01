@@ -94,7 +94,9 @@ namespace csharp_banca_oop
             int i = 1;
             foreach (User client in users)
             {
-                Console.WriteLine($"{i}. {client.Name}");
+                Console.WriteLine($"{i}. {client.Name}\n" +
+                    $"{i}. {client.Surname}\n" +
+                    $"{i}. {client.FiscalCode}\n");
                 i++;
             }
             Console.WriteLine();
