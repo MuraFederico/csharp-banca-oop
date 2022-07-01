@@ -66,7 +66,7 @@ namespace csharp_banca_oop
             int i = 1;
             foreach (Loan loan in loans)
             {
-                Console.WriteLine($"{i}. {loan.Amount}");
+                Console.WriteLine($"{i}. Amount: {loan.Amount}");
                 i++;
             }
             Console.WriteLine();
@@ -150,6 +150,17 @@ namespace csharp_banca_oop
             }
 
             return results;
+        }
+
+        public void PrintUserLoans(List<Loan> loans)
+        {
+            int i = 1;
+            foreach (Loan loan in loans)
+            {
+                Console.WriteLine($"{i}. Amount: {loan.Amount} Rates Left: {loan.RatesLeft}");
+                i++;
+            }
+            Console.WriteLine();
         }
 
         public int LoansAmount()
