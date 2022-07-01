@@ -39,6 +39,38 @@ namespace csharp_banca_oop
             return new User(name, surname, fiscalCode, salary);
         }
 
+        public static Loan CreateLoan(User loaner)
+        {
+            ConsoleCreation.Title("Loan registration", "Insert Loan Informations: ");
+            Console.Write("Amount: ");
+            int amount = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write("Number of Rates: ");
+            int rates = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            
+
+            return new Loan(loaner, amount, rates);
+        }
+
+        public void AddLoan(Loan loan)
+        {
+            this.loans.Add(loan);
+        }
+
+        public void PrintLoans()
+        {
+            ConsoleCreation.Title("Loans List");
+
+            int i = 1;
+            foreach (Loan loan in loans)
+            {
+                Console.WriteLine($"{i}. {loan.Amount}");
+                i++;
+            }
+            Console.WriteLine();
+        }
+
         public static int ClientSelection()
         {
             Console.Write("Select a Client: ");
@@ -56,7 +88,7 @@ namespace csharp_banca_oop
 
         public void PrintClients()
         {
-            ConsoleCreation.Title("Clients Lists");
+            ConsoleCreation.Title("Clients List");
 
             int i = 1;
             foreach (User client in users)
@@ -85,8 +117,11 @@ namespace csharp_banca_oop
             this.users[index] = Bank.CreateClient();
         }
 
-        public List<User> FindClient(string identifier)
+        public List<User> FindClient()
         {
+            Console.Write("Type search: ");
+            string identifier = Console.ReadLine();
+
             List<User> results = new List<User>();
             foreach (User client in users)
             {

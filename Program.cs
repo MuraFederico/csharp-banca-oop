@@ -34,12 +34,14 @@ using csharp_banca_oop;
 Bank bank = new Bank("bank name");
 User client = Bank.CreateClient();
 bank.AddClient(client);
-bank.PrintClients();
+/*bank.PrintClients();
 int clientIndex = Bank.ClientSelection();
 User selectedClient = bank.SelectClient(clientIndex);
 selectedClient.Print();
 bank.ModifyClient(clientIndex);
 selectedClient = bank.SelectClient(clientIndex);
-selectedClient.Print();
-
+selectedClient.Print();*/
+Loan loan = Bank.CreateLoan(client);
+bank.AddLoan(loan);
+bank.PrintLoans();
 
