@@ -33,7 +33,7 @@ namespace csharp_banca_oop
             string fiscalCode = Console.ReadLine();
             Console.WriteLine();
             Console.Write("Salary: ");
-            decimal salary = Decimal.Parse(Console.ReadLine());
+            int salary = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
             return new User(name, surname, fiscalCode, salary);
@@ -56,6 +56,7 @@ namespace csharp_banca_oop
         public void AddLoan(Loan loan)
         {
             this.loans.Add(loan);
+            loan.Loaner.Loans++;
         }
 
         public void PrintLoans()
@@ -132,6 +133,40 @@ namespace csharp_banca_oop
             }
 
             return results;
+        }
+
+        public List<Loan> FindLoans()
+        {
+            Console.Write("Type search: ");
+            string identifier = Console.ReadLine();
+
+            List<Loan> results = new List<Loan>();
+            foreach (Loan loan in loans)
+            {
+                if (loan.Loaner.FiscalCode == identifier)
+                {
+                    results.Add(loan);
+                }
+            }
+
+            return results;
+        }
+
+        public int LoansAmount()
+        {
+            Console.Write("Type Fiscal Code: ");
+            string identifier = Console.ReadLine();
+
+            
+            foreach (User client in users)
+            {
+                if (client.FiscalCode == identifier)
+                {
+                    return client.Loans;
+                }
+            }
+
+            throw new Exception("No user found");
         }
     }
 }

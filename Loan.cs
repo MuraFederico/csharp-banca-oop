@@ -13,7 +13,7 @@
         }
 
         int Id { get; set; }
-        User Loaner { get; set; }
+        public User Loaner { get; set; }
         public int Amount { get; set; }
         int Rates { get; set; }
         DateOnly StartDate { get; set; }

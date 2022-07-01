@@ -2,7 +2,7 @@
 {
     internal class User
     {
-        public User(object name, object surname, object fiscalCode, object salary)
+        public User(string name, string surname, string fiscalCode, int salary)
         {
             Name = name;
             Surname = surname;
@@ -10,10 +10,11 @@
             Salary = salary;
         }
 
-        public object Name { get; }
-        public object Surname { get; }
-        public object FiscalCode { get; }
-        public object Salary { get; }
+        public string Name { get; }
+        public string Surname { get; }
+        public string FiscalCode { get; }
+        public int Salary { get; }
+        public int Loans {get; set;}
 
         public void Print()
         {
