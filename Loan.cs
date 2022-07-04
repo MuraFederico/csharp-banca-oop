@@ -21,4 +21,24 @@
         DateOnly EndDate { get; set; }
 
     }
+
+    internal interface Iinterest
+    {
+        float InterestAmount();
+    }
+    internal class InterestLoan : Loan, Iinterest
+    {
+        public InterestLoan(User loaner, int amount, int rates, float interest) : base(loaner, amount, rates)
+        {
+            this.Interest = interest;
+        }
+
+        float Interest { get; set; }
+
+        public float InterestAmount()
+        {
+            return this.Interest * this.Amount / 100;
+        }
+    }
 }
+

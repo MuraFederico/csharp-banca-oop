@@ -12,12 +12,15 @@ namespace csharp_banca_oop
 
         List<User> users;
         List<Loan> loans;
+        List<BankAccount> bankAccounts;
 
         public Bank(string name)
         {
             this.Name = name;
             users = new List<User>();
             loans = new List<Loan>();
+            bankAccounts = new List<BankAccount>();
+
         }
 
         public static User CreateClient()
@@ -51,6 +54,21 @@ namespace csharp_banca_oop
             
 
             return new Loan(loaner, amount, rates);
+        }
+
+        public static StandardAccount CreateStandardAccount(User owner)
+        {
+            return new StandardAccount(owner);
+        }
+
+        public static SavingsAccount CreateSavingsAccount(User owner)
+        {
+            return new SavingsAccount(owner);
+        }
+
+        public void AddBankAccount(BankAccount account)
+        {
+            this.bankAccounts.Add(account);
         }
 
         public void AddLoan(Loan loan)
